@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Mie Ayam Bakso - Enak & Bergizi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d35400;
+            --primary-dark: #a84300;
+            --secondary: #f39c12;
+            --light: #fff8f0;
+            --dark: #333333;
+            --gray: #7f8c8d;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Menu Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .menu-category {
+            margin-bottom: 60px;
+        }
+        
+        .menu-category h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .menu-content {
+            padding: 25px;
+        }
+        
+        .menu-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .menu-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .menu-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--success);
+        }
+        
+        .order-btn {
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .order-btn:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Map Section */
+        .map-section {
+            background-color: #f9f9f9;
+        }
+        
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 450px;
+        }
+        
+        .map-info {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .info-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .info-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .info-card i {
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+        }
+        
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Modal untuk konfirmasi pesanan */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .modal h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .modal p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            color: var(--gray);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-utensils logo-icon"></i>
+                    <span class="logo-text">Mie Ayam Bakso</span>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#home">Beranda</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#location">Lokasi</a>
+                    <a href="#contact">Kontak</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Warung Mie Ayam Bakso Spesial</h1>
+            <p>Nikmati kelezatan mie ayam dan bakso dengan resep turun-temurun. Dibuat dengan bahan-bahan segar dan bumbu rahasia yang menggugah selera.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#menu" class="btn">Lihat Menu</a>
+                <a href="#location" class="btn btn-secondary">Lihat Lokasi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Andalan Kami</h2>
+                <p>Pilih menu favorit Anda dan pesan langsung melalui WhatsApp. Kami siap melayani dengan senang hati.</p>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Mie Ayam</h3>
+                <div class="menu-grid">
+                    <!-- Menu Item 1 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mie Ayam Biasa" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Mie Ayam Biasa</h4>
+                            <p>Mie ayam dengan potongan ayam, pangsit goreng, dan sayuran segar. Disajikan dengan kuah kaldu ayam spesial.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 15.000</span>
+                                <a href="#" class="order-btn" data-item="Mie Ayam Biasa" data-price="15000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 2 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mie Ayam Bakso" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Mie Ayam + Bakso</h4>
+                            <p>Mie ayam spesial dengan tambahan bakso sapi kenyal. Perpaduan sempurna antara mie ayam dan bakso.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 20.000</span>
+                                <a href="#" class="order-btn" data-item="Mie Ayam + Bakso" data-price="20000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 3 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1617093727343-6a7f5d6c9c6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mie Ayam Pangsit" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Mie Ayam Pangsit</h4>
+                            <p>Mie ayam lengkap dengan pangsit goreng renyah dan pangsit rebus lembut. Ditambah sayuran segar.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 18.000</span>
+                                <a href="#" class="order-btn" data-item="Mie Ayam Pangsit" data-price="18000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Bakso</h3>
+                <div class="menu-grid">
+                    <!-- Menu Item 4 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1559314809-2b99056a8c4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bakso Biasa" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Bakso Biasa</h4>
+                            <p>Bakso sapi kenyal dengan kuah kaldu sapi yang gurih. Disajikan dengan mie, tahu, dan sayuran.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 15.000</span>
+                                <a href="#" class="order-btn" data-item="Bakso Biasa" data-price="15000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 5 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bakso Jumbo" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Bakso Jumbo</h4>
+                            <p>Bakso sapi ukuran jumbo dengan isian yang melimpah. Satu porsi sudah cukup mengenyangkan.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 25.000</span>
+                                <a href="#" class="order-btn" data-item="Bakso Jumbo" data-price="25000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 6 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bakso Mercon" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Bakso Mercon</h4>
+                            <p>Bakso pedas dengan level kepedasan yang bisa disesuaikan. Untuk pecinta makanan pedas.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 18.000</span>
+                                <a href="#" class="order-btn" data-item="Bakso Mercon" data-price="18000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Minuman</h3>
+                <div class="menu-grid">
+                    <!-- Menu Item 7 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Es Teh" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Es Teh Manis</h4>
+                            <p>Es teh segar dengan rasa manis yang pas. Teman yang cocok untuk mie ayam dan bakso.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 5.000</span>
+                                <a href="#" class="order-btn" data-item="Es Teh Manis" data-price="5000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 8 -->
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Jeruk" class="menu-img">
+                        <div class="menu-content">
+                            <h4>Es Jeruk</h4>
+                            <p>Minuman segar dari jeruk asli. Menyegarkan dan kaya vitamin C.</p>
+                            <div class="menu-price">
+                                <span class="price">Rp 7.000</span>
+                                <a href="#" class="order-btn" data-item="Es Jeruk" data-price="7000">
+                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Map Section -->
+    <section class="map-section" id="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lokasi Warung Kami</h2>
+                <p>Kunjungi warung kami di lokasi strategis. Buka setiap hari dari jam 08.00 - 22.00 WIB.</p>
+            </div>
+            
+            <div class="map-container">
+                <!-- Embed Google Maps -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2087.5866052114334!2d106.79455765392048!3d-6.5635254505988945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5228bdf0ab5%3A0xa7ac6c692ff26995!2safiya%20friedchicken!5e0!3m2!1sid!2sid!4v1766459640466!5m2!1sid!2sid"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div class="map-info">
+                <div class="info-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Alamat</h4>
+                    <p>Jl. Mie Ayam No. 123, Kelurahan Bakso, Kecamatan Mie, Jakarta Selatan, DKI Jakarta 12345</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-clock"></i> Jam Buka</h4>
+                    <p>Senin - Minggu: 08.00 - 22.00 WIB</p>
+                    <p>Hari Libur: Tetap Buka</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4><i class="fas fa-phone-alt"></i> Kontak</h4>
+                    <p>Telepon: (021) 123-4567</p>
+                    <p>WhatsApp: 0812-3456-7890</p>
+                    <p>Email: mieayambakso@warung.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Warung Mie Ayam Bakso</h3>
+                    <p>Menyajikan mie ayam dan bakso dengan cita rasa tradisional yang autentik. Bahan segar, diolah dengan penuh cinta.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Menu Populer</h3>
+                    <ul class="footer-links">
+                        <li><a href="#menu">Mie Ayam Biasa</a></li>
+                        <li><a href="#menu">Mie Ayam + Bakso</a></li>
+                        <li><a href="#menu">Bakso Jumbo</a></li>
+                        <li><a href="#menu">Bakso Mercon</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Mie Ayam No. 123, Jakarta Selatan</li>
+                        <li><i class="fas fa-phone-alt"></i> (021) 123-4567</li>
+                        <li><i class="fab fa-whatsapp"></i> 0812-3456-7890</li>
+                        <li><i class="fas fa-envelope"></i> mieayambakso@warung.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Warung Mie Ayam Bakso. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Konfirmasi Pesanan -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3>Konfirmasi Pesanan</h3>
+            <p>Anda akan memesan: <strong id="selectedItem">Mie Ayam Biasa</strong></p>
+            <p>Harga: <strong id="selectedPrice">Rp 15.000</strong></p>
+            <p>Pesanan akan dikirim ke WhatsApp pemilik warung. Pastikan nomor WhatsApp Anda aktif.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
+                <button class="btn" id="confirmOrder">Pesan via WhatsApp</button>
+                <button class="btn btn-secondary" id="cancelOrder">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Order Modal Logic
+        const orderModal = document.getElementById('orderModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelOrderBtn = document.getElementById('cancelOrder');
+        const confirmOrderBtn = document.getElementById('confirmOrder');
+        const selectedItemElement = document.getElementById('selectedItem');
+        const selectedPriceElement = document.getElementById('selectedPrice');
+        
+        let selectedItem = '';
+        let selectedPrice = '';
+        
+        // Event listener for all order buttons
+        document.querySelectorAll('.order-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get item data
+                selectedItem = this.getAttribute('data-item');
+                selectedPrice = this.getAttribute('data-price');
+                
+                // Update modal content
+                selectedItemElement.textContent = selectedItem;
+                selectedPriceElement.textContent = `Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}`;
+                
+                // Show modal
+                orderModal.style.display = 'flex';
+            });
+        });
+        
+        // Close modal events
+        closeModal.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+        
+        cancelOrderBtn.addEventListener('click', () => {
+            orderModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if(e.target === orderModal) {
+                orderModal.style.display = 'none';
+            }
+        });
+        
+        // Confirm order - redirect to WhatsApp
+        confirmOrderBtn.addEventListener('click', () => {
+            // Nomor WhatsApp pemilik warung (ganti dengan nomor asli)
+            const phoneNumber = '6281234567890';
+            
+            // Create WhatsApp message
+            const message = `Halo, saya ingin memesan:\n\n*${selectedItem}*\nHarga: Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}\n\nApakah bisa dipesan?`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Redirect to WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Close modal
+            orderModal.style.display = 'none';
+        });
+        
+        // Formatted price display
+        document.querySelectorAll('.price').forEach(priceElement => {
+            const price = parseInt(priceElement.textContent.replace('Rp ', '').replace('.', ''));
+            priceElement.textContent = `Rp ${price.toLocaleString('id-ID')}`;
+        });
+    </script>
+</body>
+</html>
