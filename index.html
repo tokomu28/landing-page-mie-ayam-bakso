@@ -1,881 +1,383 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warung Mie Ayam Bakso - Enak & Bergizi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #d35400;
-            --primary-dark: #a84300;
-            --secondary: #f39c12;
-            --light: #fff8f0;
-            --dark: #333333;
-            --gray: #7f8c8d;
-            --success: #27ae60;
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mie Ayam &amp; Bakso - Authentic Homemade Noodles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec6d13",
+                        "primary-dark": "#d55f0b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221810",
+                        "text-main": "#1b130d",
+                        "text-muted": "#6b5c52",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.6;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo-icon {
-            color: var(--primary);
-            font-size: 28px;
-        }
-        
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: var(--primary);
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background-color: white;
-            color: var(--primary);
-        }
-        
-        /* Menu Section */
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        .menu-category {
-            margin-bottom: 60px;
-        }
-        
-        .menu-category h3 {
-            font-size: 1.8rem;
-            color: var(--dark);
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary);
-            display: inline-block;
-        }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .menu-item {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s;
-        }
-        
-        .menu-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .menu-img {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .menu-content {
-            padding: 25px;
-        }
-        
-        .menu-content h4 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .menu-content p {
-            color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-        
-        .menu-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--success);
-        }
-        
-        .order-btn {
-            background-color: var(--secondary);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        
-        .order-btn:hover {
-            background-color: var(--primary);
-        }
-        
-        /* Map Section */
-        .map-section {
-            background-color: #f9f9f9;
-        }
-        
-        .map-container {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 450px;
-        }
-        
-        .map-info {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .info-card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .info-card h4 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .info-card i {
-            color: var(--secondary);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 70px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--secondary);
-        }
-        
-        .footer-column p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 20px;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-        
-        /* Modal untuk konfirmasi pesanan */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-        }
-        
-        .modal h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-        
-        .modal p {
-            margin-bottom: 25px;
-            color: var(--gray);
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 28px;
-            color: var(--gray);
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .menu-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s;
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            
-            .hero {
-                padding: 150px 0 80px;
-            }
-            
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            section {
-                padding: 80px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .btn {
-                padding: 12px 24px;
-                font-size: 1rem;
-            }
-            
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
-<body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <i class="fas fa-utensils logo-icon"></i>
-                    <span class="logo-text">Mie Ayam Bakso</span>
-                </div>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <div class="nav-links" id="navLinks">
-                    <a href="#home">Beranda</a>
-                    <a href="#menu">Menu</a>
-                    <a href="#location">Lokasi</a>
-                    <a href="#contact">Kontak</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Warung Mie Ayam Bakso Spesial</h1>
-            <p>Nikmati kelezatan mie ayam dan bakso dengan resep turun-temurun. Dibuat dengan bahan-bahan segar dan bumbu rahasia yang menggugah selera.</p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#menu" class="btn">Lihat Menu</a>
-                <a href="#location" class="btn btn-secondary">Lihat Lokasi</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu">
-        <div class="container">
-            <div class="section-title">
-                <h2>Menu Andalan Kami</h2>
-                <p>Pilih menu favorit Anda dan pesan langsung melalui WhatsApp. Kami siap melayani dengan senang hati.</p>
-            </div>
-            
-            <div class="menu-category">
-                <h3>Mie Ayam</h3>
-                <div class="menu-grid">
-                    <!-- Menu Item 1 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mie Ayam Biasa" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Mie Ayam Biasa</h4>
-                            <p>Mie ayam dengan potongan ayam, pangsit goreng, dan sayuran segar. Disajikan dengan kuah kaldu ayam spesial.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 15.000</span>
-                                <a href="#" class="order-btn" data-item="Mie Ayam Biasa" data-price="15000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+<!-- Sticky Navigation Bar -->
+<nav class="sticky top-0 z-50 w-full border-b border-stone-200 dark:border-stone-800 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16 sm:h-20">
+<!-- Logo -->
+<div class="flex items-center gap-2 text-text-main dark:text-white">
+<div class="size-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-2xl">ramen_dining</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Mie Ayam &amp; Bakso</h2>
+</div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex flex-1 justify-end items-center gap-8">
+<div class="flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#hero">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#menu">Menu</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#reviews">Reviews</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#location">Location</a>
+</div>
+<a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold shadow-lg shadow-primary/20" href="https://wa.me/?text=Hello,%20I%20would%20like%20to%20order..." target="_blank">
+<span class="truncate">Order Now</span>
+</a>
+</div>
+<!-- Mobile Menu Button (Icon only for design integrity) -->
+<div class="md:hidden">
+<button class="text-text-main dark:text-white p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative w-full" id="hero">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<!-- Text Content -->
+<div class="flex flex-col gap-6 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 w-fit">
+<span class="material-symbols-outlined text-primary text-sm icon-filled">verified</span>
+<span class="text-xs font-bold text-primary tracking-wide uppercase">Best in Town Since 2015</span>
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-text-main dark:text-white">
+                        Authentic Homemade <span class="text-primary">Chicken Noodles</span> &amp; Meatballs
+                    </h1>
+<p class="text-lg text-text-muted dark:text-gray-400 max-w-lg leading-relaxed">
+                        Experience the rich, savory taste of our family recipe. Fresh handmade noodles and juicy meatballs served daily with love.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-2">
+<a class="flex items-center justify-center gap-2 h-12 px-8 bg-primary hover:bg-primary-dark text-white rounded-lg font-bold transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5" href="https://wa.me/?text=Hello,%20I%20would%20like%20to%20order..." target="_blank">
+<span class="material-symbols-outlined text-xl">chat</span>
+<span>Order via WhatsApp</span>
+</a>
+<a class="flex items-center justify-center h-12 px-8 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 hover:border-primary text-text-main dark:text-white rounded-lg font-bold transition-all hover:bg-stone-50 dark:hover:bg-stone-700" href="#menu">
+                            View Menu
+                        </a>
+</div>
+<div class="flex items-center gap-4 mt-6 text-sm text-text-muted dark:text-gray-500">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-background-dark bg-stone-200 bg-cover bg-center" data-alt="avatar of happy customer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuKcW9_Zjhkj1wYZoLavBYDS9k_54jU4rr3OkprGfsQ0XVMJXEYuzDEaHXBYqoNoqTYPnLzNy6S10T4YnShix9TW7qyY_2w1PKfz3h7Kd3MPTdFycATL82EztJka9ETAY7y9Yx3ZYF84GCXMEveRQkxDABrPmgnkVxt7CxbYyWpC1L63SSJXFdocTkrqPabHBEBL5kGN_NP4Qn_6pfmKS4BOcBnPKI4Ikw1kobYvX4MfQLmFqi9VBvC9iPZIYuTvJscj6DV_E04-tC');"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-background-dark bg-stone-200 bg-cover bg-center" data-alt="avatar of happy customer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCdbRCxKsLz2OIu5_xxMrGihw-57arKZq3kYO_uB6MVYp6k2j4LuDjHyZBxKLpaeJnIoKp6N6PpQkV6CRPUKRhKKe-DEoTnI0GYhz7vyt0SF1-4w8X4fTKt6z1xg_V3ZqoF6wFKr15-PtYhkZxzzlRUHlomKUZch9kbQJaYoDTUxTVTmAofwku12XzVP4uzfkYD6AGBNNll4lbKmTz7n5MBtG0geY35hJu7zY6_oG6vPG8HKe9v1Snn_ww2wudgiyYjbgOiD6FJmKe');"></div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-background-dark bg-stone-200 bg-cover bg-center" data-alt="avatar of happy customer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5svifQ6j2WbX4Nj1qion-8edSAf0HDiYy_c7jqcYgxJaYRLV8UTz8vSwGxKrZ2BDp1ZLXrhDuDRnnv_403hEDzAexqYl-QB799uSmcq6L28J3cbJt1l-UvdkfywFYTVpawzUzewP5HF1twOe6VO55rY4vtLkpBLtyiUsYeNvmpNBsxrWUquZW-OMbtfqJqHnUD5PfCK-kq_Po_8lSW8zqEbxQeArP0OuvRwvuV7uEiWTY3yfhPJexM9u3KtbdaTdXvP2BYGMTuUCD');"></div>
+</div>
+<p>Loved by <strong>1,500+</strong> happy customers</p>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="order-1 lg:order-2 relative group">
+<div class="absolute -inset-4 bg-primary/20 rounded-full blur-3xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+<div class="relative w-full aspect-square lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-stone-200">
+<div class="w-full h-full bg-cover bg-center transform transition-transform duration-700 hover:scale-105" data-alt="Close up of delicious chicken noodles bowl with meatballs and green vegetables" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYB7z1XorlCVzaCtx1PI6bitruogEdq9xr756XFFaNVhKPf3Qzwi7FGxQlx2DkuZuk0Wa4S0s75vAFVNvBDOpZ3aawGhqT4lT40j1jDw2SW1ZDJ8z96BPn0ZynlZWE0b381RcI61zIj_v-Tg9fkqqdHsc8notURn0WniHZw_NLaEGL1mFv8CBEWf-69CK5GsSwkOesykGjCHV5z66H6q8zwmXllWcoFpjglrPT-oEtM4adsogRKJcIYyS2UGmlxehWHeU33DgjaDLF');">
+</div>
+<!-- Floating Badge -->
+<div class="absolute bottom-6 left-6 bg-white/95 dark:bg-stone-900/95 backdrop-blur px-4 py-3 rounded-xl shadow-lg border border-stone-100 dark:border-stone-800 flex items-center gap-3">
+<div class="bg-green-100 text-green-600 p-2 rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="text-xs text-text-muted dark:text-gray-400">Starting from</p>
+<p class="text-sm font-bold text-text-main dark:text-white">Rp 15.000</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Menu Section -->
+<section class="bg-white dark:bg-stone-900 py-16 lg:py-24" id="menu">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<div class="max-w-2xl">
+<h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-2">Our Menu</h2>
+<h3 class="text-3xl md:text-4xl font-bold text-text-main dark:text-white mb-4">Customer Favorites</h3>
+<p class="text-text-muted dark:text-gray-400 text-lg">Hand-picked selection of our most loved dishes, prepared fresh upon order.</p>
+</div>
+<a class="text-primary font-bold hover:text-primary-dark inline-flex items-center gap-1 transition-colors" href="#">
+                    View Full Menu <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Menu Item 1 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-xl p-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-stone-100 dark:border-stone-800">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-4">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Bowl of Mie Ayam with chicken chunks and green veggies" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsSRI3hMnOgxnF4m_mO5g_d9ntEX-V_RhK_Pul02nzHBTMfPETwuvs_fl58g4M7PSRauwrEZsUIhqBdAMMFAbLas1omRgrfgnLghtryVV5-oXkM1dwNcOTz3ZBBE5i3VHyFC5yQtEbH4jkyQTRvuJYNgnlcT92dBEDsCEdYeFR4TTgLKsiAIHc7FdXZyvGaDMunQk88ZhsV5OWCEpI_utRW8nLvjJKogXUozB-BVxGArtSHi7w4-gybmD2khKAcNesoAZQL3ROcj4Z');"></div>
+<div class="absolute top-3 right-3 bg-white dark:bg-stone-800 px-2 py-1 rounded-md text-xs font-bold shadow-md">
+                            Best Seller
                         </div>
-                    </div>
-                    
-                    <!-- Menu Item 2 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mie Ayam Bakso" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Mie Ayam + Bakso</h4>
-                            <p>Mie ayam spesial dengan tambahan bakso sapi kenyal. Perpaduan sempurna antara mie ayam dan bakso.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 20.000</span>
-                                <a href="#" class="order-btn" data-item="Mie Ayam + Bakso" data-price="20000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Menu Item 3 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1617093727343-6a7f5d6c9c6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mie Ayam Pangsit" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Mie Ayam Pangsit</h4>
-                            <p>Mie ayam lengkap dengan pangsit goreng renyah dan pangsit rebus lembut. Ditambah sayuran segar.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 18.000</span>
-                                <a href="#" class="order-btn" data-item="Mie Ayam Pangsit" data-price="18000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="menu-category">
-                <h3>Bakso</h3>
-                <div class="menu-grid">
-                    <!-- Menu Item 4 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1559314809-2b99056a8c4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bakso Biasa" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Bakso Biasa</h4>
-                            <p>Bakso sapi kenyal dengan kuah kaldu sapi yang gurih. Disajikan dengan mie, tahu, dan sayuran.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 15.000</span>
-                                <a href="#" class="order-btn" data-item="Bakso Biasa" data-price="15000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Menu Item 5 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bakso Jumbo" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Bakso Jumbo</h4>
-                            <p>Bakso sapi ukuran jumbo dengan isian yang melimpah. Satu porsi sudah cukup mengenyangkan.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 25.000</span>
-                                <a href="#" class="order-btn" data-item="Bakso Jumbo" data-price="25000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Menu Item 6 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Bakso Mercon" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Bakso Mercon</h4>
-                            <p>Bakso pedas dengan level kepedasan yang bisa disesuaikan. Untuk pecinta makanan pedas.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 18.000</span>
-                                <a href="#" class="order-btn" data-item="Bakso Mercon" data-price="18000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="menu-category">
-                <h3>Minuman</h3>
-                <div class="menu-grid">
-                    <!-- Menu Item 7 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Es Teh" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Es Teh Manis</h4>
-                            <p>Es teh segar dengan rasa manis yang pas. Teman yang cocok untuk mie ayam dan bakso.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 5.000</span>
-                                <a href="#" class="order-btn" data-item="Es Teh Manis" data-price="5000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Menu Item 8 -->
-                    <div class="menu-item">
-                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Jeruk" class="menu-img">
-                        <div class="menu-content">
-                            <h4>Es Jeruk</h4>
-                            <p>Minuman segar dari jeruk asli. Menyegarkan dan kaya vitamin C.</p>
-                            <div class="menu-price">
-                                <span class="price">Rp 7.000</span>
-                                <a href="#" class="order-btn" data-item="Es Jeruk" data-price="7000">
-                                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location & Map Section -->
-    <section class="map-section" id="location">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lokasi Warung Kami</h2>
-                <p>Kunjungi warung kami di lokasi strategis. Buka setiap hari dari jam 08.00 - 22.00 WIB.</p>
-            </div>
-            
-            <div class="map-container">
-                <!-- Embed Google Maps -->
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2087.5866052114334!2d106.79455765392048!3d-6.5635254505988945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5228bdf0ab5%3A0xa7ac6c692ff26995!2safiya%20friedchicken!5e0!3m2!1sid!2sid!4v1766459640466!5m2!1sid!2sid"
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-            
-            <div class="map-info">
-                <div class="info-card">
-                    <h4><i class="fas fa-map-marker-alt"></i> Alamat</h4>
-                    <p>Jl. Mie Ayam No. 123, Kelurahan Bakso, Kecamatan Mie, Jakarta Selatan, DKI Jakarta 12345</p>
-                </div>
-                
-                <div class="info-card">
-                    <h4><i class="fas fa-clock"></i> Jam Buka</h4>
-                    <p>Senin - Minggu: 08.00 - 22.00 WIB</p>
-                    <p>Hari Libur: Tetap Buka</p>
-                </div>
-                
-                <div class="info-card">
-                    <h4><i class="fas fa-phone-alt"></i> Kontak</h4>
-                    <p>Telepon: (021) 123-4567</p>
-                    <p>WhatsApp: 0812-3456-7890</p>
-                    <p>Email: mieayambakso@warung.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Warung Mie Ayam Bakso</h3>
-                    <p>Menyajikan mie ayam dan bakso dengan cita rasa tradisional yang autentik. Bahan segar, diolah dengan penuh cinta.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Menu Populer</h3>
-                    <ul class="footer-links">
-                        <li><a href="#menu">Mie Ayam Biasa</a></li>
-                        <li><a href="#menu">Mie Ayam + Bakso</a></li>
-                        <li><a href="#menu">Bakso Jumbo</a></li>
-                        <li><a href="#menu">Bakso Mercon</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Kontak Kami</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> Jl. Mie Ayam No. 123, Jakarta Selatan</li>
-                        <li><i class="fas fa-phone-alt"></i> (021) 123-4567</li>
-                        <li><i class="fab fa-whatsapp"></i> 0812-3456-7890</li>
-                        <li><i class="fas fa-envelope"></i> mieayambakso@warung.com</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 Warung Mie Ayam Bakso. Hak Cipta Dilindungi.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal Konfirmasi Pesanan -->
-    <div class="modal" id="orderModal">
-        <div class="modal-content">
-            <button class="close-modal" id="closeModal">&times;</button>
-            <h3>Konfirmasi Pesanan</h3>
-            <p>Anda akan memesan: <strong id="selectedItem">Mie Ayam Biasa</strong></p>
-            <p>Harga: <strong id="selectedPrice">Rp 15.000</strong></p>
-            <p>Pesanan akan dikirim ke WhatsApp pemilik warung. Pastikan nomor WhatsApp Anda aktif.</p>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-                <button class="btn" id="confirmOrder">Pesan via WhatsApp</button>
-                <button class="btn btn-secondary" id="cancelOrder">Batal</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    // Close mobile menu if open
-                    navLinks.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Order Modal Logic
-        const orderModal = document.getElementById('orderModal');
-        const closeModal = document.getElementById('closeModal');
-        const cancelOrderBtn = document.getElementById('cancelOrder');
-        const confirmOrderBtn = document.getElementById('confirmOrder');
-        const selectedItemElement = document.getElementById('selectedItem');
-        const selectedPriceElement = document.getElementById('selectedPrice');
-        
-        let selectedItem = '';
-        let selectedPrice = '';
-        
-        // Event listener for all order buttons
-        document.querySelectorAll('.order-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Get item data
-                selectedItem = this.getAttribute('data-item');
-                selectedPrice = this.getAttribute('data-price');
-                
-                // Update modal content
-                selectedItemElement.textContent = selectedItem;
-                selectedPriceElement.textContent = `Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}`;
-                
-                // Show modal
-                orderModal.style.display = 'flex';
-            });
-        });
-        
-        // Close modal events
-        closeModal.addEventListener('click', () => {
-            orderModal.style.display = 'none';
-        });
-        
-        cancelOrderBtn.addEventListener('click', () => {
-            orderModal.style.display = 'none';
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if(e.target === orderModal) {
-                orderModal.style.display = 'none';
-            }
-        });
-        
-        // Confirm order - redirect to WhatsApp
-        confirmOrderBtn.addEventListener('click', () => {
-            // Nomor WhatsApp pemilik warung (ganti dengan nomor asli)
-            const phoneNumber = '6281234567890';
-            
-            // Create WhatsApp message
-            const message = `Halo, saya ingin memesan:\n\n*${selectedItem}*\nHarga: Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}\n\nApakah bisa dipesan?`;
-            
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(message);
-            
-            // Create WhatsApp URL
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            // Redirect to WhatsApp
-            window.open(whatsappURL, '_blank');
-            
-            // Close modal
-            orderModal.style.display = 'none';
-        });
-        
-        // Formatted price display
-        document.querySelectorAll('.price').forEach(priceElement => {
-            const price = parseInt(priceElement.textContent.replace('Rp ', '').replace('.', ''));
-            priceElement.textContent = `Rp ${price.toLocaleString('id-ID')}`;
-        });
-    </script>
-</body>
-</html>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-text-main dark:text-white">Mie Ayam Special</h4>
+<span class="text-primary font-bold">Rp 25.000</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 mb-4 line-clamp-2">Handmade noodles topped with savory soy chicken, mushrooms, and crispy wonton skin.</p>
+<button class="w-full mt-auto py-2.5 rounded-lg border-2 border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span> Add to Order
+                    </button>
+</div>
+<!-- Menu Item 2 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-xl p-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-stone-100 dark:border-stone-800">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-4">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Bowl of Bakso with broth and fried tofu" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNUwii0-rNbpstP22irIF6JFvIBZuKZqpqpISMVQIrJChi6zmc064ZMAomUNEdrJwL-niAuEh64_dm0t4_hxtaNmwJ0xPux3qYfh_t3dyPYx4zePNSGqePc6gFD8foADeKBLJwf-t9yB-pGg7LMJlps8gyVPBfXl0AgheQrrb1pDHNXvO3HuJZKEh2sNQ37-vn_WCOHv8DkrtEaKZX8bueKMP8f00i3Qx0kXQIMJET9X6o3Uvwgiray_XpRGHgwXFEF9ma7vbe15d_');"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-text-main dark:text-white">Bakso Urat Complete</h4>
+<span class="text-primary font-bold">Rp 30.000</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 mb-4 line-clamp-2">Large tendon meatballs served with rich beef broth, tofu, yellow noodles, and vermicelli.</p>
+<button class="w-full mt-auto py-2.5 rounded-lg border-2 border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span> Add to Order
+                    </button>
+</div>
+<!-- Menu Item 3 -->
+<div class="group bg-background-light dark:bg-background-dark rounded-xl p-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-stone-100 dark:border-stone-800">
+<div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-4">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Glass of iced orange juice" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_KVwzaKP8W4GrOC48QwEfgYBfwFnrgJMcfy4dOm-y4sRTjvY1EaBGZA7izBWg0AN0cUMvOYlSqo7b9CtnY0c46V2D7Hjyi1DIleTtY6opQsVq-oDM2n9Pr7VoDIvRa5AUt1B9mvhU2dJrcdndvABUjTKYtxmwtrmj1oSfMuw2MRE2HXLZcLrqmuuDjyVHv0IHEuzSUt4gj7YYoJbEsNgm1943CXQse7Q8V42k3q-NC0gM0n6NLrCqBn-tYYHt4Ko39HAEMLlJw3M9');"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-text-main dark:text-white">Es Jeruk Segar</h4>
+<span class="text-primary font-bold">Rp 10.000</span>
+</div>
+<p class="text-sm text-text-muted dark:text-gray-400 mb-4 line-clamp-2">Freshly squeezed local oranges with ice. The perfect refreshing companion for your meal.</p>
+<button class="w-full mt-auto py-2.5 rounded-lg border-2 border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span> Add to Order
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-16 lg:py-24 relative overflow-hidden" id="reviews">
+<!-- Background Pattern -->
+<div class="absolute inset-0 bg-primary/5 -z-10"></div>
+<div class="absolute -right-20 top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-20 bottom-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-text-main dark:text-white mb-4">What Our Customers Say</h2>
+<div class="w-20 h-1.5 bg-primary rounded-full mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review Card 1 -->
+<div class="bg-white dark:bg-stone-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+</div>
+<p class="text-text-muted dark:text-gray-300 mb-6 italic">"The Mie Ayam here is absolutely authentic! The chicken topping is generous and the noodles have the perfect texture. Highly recommended!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-200 bg-cover bg-center" data-alt="Portrait of customer Sarah" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_FKpmhZXLSSo836wdBmj38LQ1-OVgg8YitgMD3vCUPgbUB9huCaSieTtIHtCaaPYGzXyBn5KXkSKwDFN8Ng32GYJlTuPvLMKlpxAucelb95g9u9RrftQ8TIHW5LgoEKN2Jhr6X0wzuUToezR7vc7wDWNcHnNQy1EoXsOdGDslA-vx2k4nph0ZtTM_9byz7nAHPAx0RgRAWEvOh87iD1c0EI5pZKHvhCGX5BJNN8K07cq1VDx2_pMf_yZNhqfnKihxoHGspRoedQOD');"></div>
+<div>
+<h5 class="font-bold text-text-main dark:text-white text-sm">Sarah Wijaya</h5>
+<p class="text-xs text-text-muted dark:text-gray-500">Local Guide</p>
+</div>
+</div>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-white dark:bg-stone-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+</div>
+<p class="text-text-muted dark:text-gray-300 mb-6 italic">"Best Bakso in the area. The broth is rich and clear, not too greasy. The 'Bakso Urat' is a must-try. Will definitely come back."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-200 bg-cover bg-center" data-alt="Portrait of customer Budi" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBh43jHwfyS-d3CL43u2tWaZdJq5yXrH9WPem3IIq_Cm80W4JkKr3qbPrzAuEgQTCTtZ6mBcC7xvrUUTwPHxW2XBJyGjKVnYLNA8C1D6mKqXnSxsW3GLHokI7p5JOqgrmV90xjBRnqmI6eZ4HB226FfB7_XFBFMcSI2yWZWlX8OvZWak2GEtrMFQBix0HLI4e6zbvnx7YV6srevu1W7pWfyFBJq780133NhNGh_OVFZCNUTbwpBBNKAm2Pz5-fr1OgtnBDq0j-hWA0C');"></div>
+<div>
+<h5 class="font-bold text-text-main dark:text-white text-sm">Budi Santoso</h5>
+<p class="text-xs text-text-muted dark:text-gray-500">Regular Customer</p>
+</div>
+</div>
+</div>
+<!-- Review Card 3 -->
+<div class="bg-white dark:bg-stone-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex text-yellow-400 mb-4">
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star</span>
+<span class="material-symbols-outlined icon-filled">star_half</span>
+</div>
+<p class="text-text-muted dark:text-gray-300 mb-6 italic">"Great place for a quick lunch. The service is fast and friendly. The chili sauce is spicy and kicks perfectly!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-stone-200 bg-cover bg-center" data-alt="Portrait of customer Linda" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCf625AhnDhCxw9gxO9PshyMo0Uqkllzper5tShoGusq58MJi9m4M-l_UK_KA4roEQwG5I3lXrqNR8ZKRMnxqF27-FS0ga_K-rfVL10knAG5mRdHDB3gwJTsQ2vkL-sqvVHEJg_WdRJhuQI8nVH237zxLotmeYHevBUoLgR5JmZ_uW6sASyyyHu-MIrJO5LLZHEekffZsqpysBjvh4r2gwJVNwupsKtONVBmHCG77gUViyq0ZnMymhiY5qpGP3Hc1ahvc30AXE7YU9k');"></div>
+<div>
+<h5 class="font-bold text-text-main dark:text-white text-sm">Linda Kusuma</h5>
+<p class="text-xs text-text-muted dark:text-gray-500">Food Blogger</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section class="py-16 lg:py-24" id="location">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-white dark:bg-stone-900 rounded-3xl overflow-hidden shadow-2xl border border-stone-100 dark:border-stone-800">
+<div class="grid lg:grid-cols-2">
+<!-- Location Info -->
+<div class="p-8 lg:p-12 flex flex-col justify-center">
+<div class="inline-flex items-center gap-2 mb-6 text-primary">
+<span class="material-symbols-outlined icon-filled">location_on</span>
+<span class="font-bold uppercase tracking-wide">Visit Us</span>
+</div>
+<h2 class="text-3xl font-bold text-text-main dark:text-white mb-6">Come Taste the Difference</h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white text-lg">Our Location</h4>
+<p class="text-text-muted dark:text-gray-400">Jl. Raya Flavor No. 123, Food District<br/>Jakarta Selatan, 12345</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white text-lg">Opening Hours</h4>
+<p class="text-text-muted dark:text-gray-400">Monday - Friday: 10:00 AM - 09:00 PM</p>
+<p class="text-text-muted dark:text-gray-400">Saturday - Sunday: 09:00 AM - 10:00 PM</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<h4 class="font-bold text-text-main dark:text-white text-lg">Contact</h4>
+<p class="text-text-muted dark:text-gray-400">+62 812 3456 7890</p>
+</div>
+</div>
+</div>
+<a class="mt-8 w-fit px-6 py-3 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-text-main dark:text-white font-bold rounded-lg transition-colors flex items-center gap-2" href="https://maps.google.com" target="_blank">
+<span>Get Directions</span>
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+</a>
+</div>
+<!-- Map Embed / Image Placeholder -->
+<div class="h-96 lg:h-auto min-h-[400px] w-full bg-stone-200 relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="Map showing location in Jakarta" data-location="Jakarta, Indonesia" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBH6XyH0W07S8i5frqzEC15uymbXKVMcMToBpYLSz0cina2LFVACTZw8kecVYUiuAY9BhF9RnHbYcAjNb8A6ZzXHW6V3C-uCVjhbOr5MxVFN6iHIrmcHCmJDdmcmT3MYmKwZMLU1oE6WsnQwZHEY4NL-bpLUhQ1X3useoa6r8C3RLN6giDnvfY11ZfeYYIIgiugYaDYDG_a6KpSlxc-Z64knzF0pkSpbyste7hfAL45ZKO_RSbKbbxtuatuAG9bFAYZpbdw-DL7nO5Z');">
+<!-- Overlay to simulate map UI -->
+<div class="absolute inset-0 bg-stone-900/10"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-6xl text-primary drop-shadow-xl icon-filled animate-bounce">location_on</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark text-white pt-16 pb-8 border-t border-stone-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<!-- Brand -->
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">ramen_dining</span>
+<h3 class="text-xl font-bold">Mie Ayam &amp; Bakso</h3>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed">Serving authentic flavors that bring warmth to your heart and stomach. Fresh ingredients, family recipe.</p>
+</div>
+<!-- Links -->
+<div>
+<h4 class="font-bold text-lg mb-4 text-primary">Quick Links</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:text-white transition-colors" href="#hero">Home</a></li>
+<li><a class="hover:text-white transition-colors" href="#menu">Menu</a></li>
+<li><a class="hover:text-white transition-colors" href="#reviews">Reviews</a></li>
+<li><a class="hover:text-white transition-colors" href="#location">Location</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div>
+<h4 class="font-bold text-lg mb-4 text-primary">Contact Us</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-base">call</span> +62 812 3456 7890</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-base">mail</span> hello@mieayambakso.com</li>
+</ul>
+</div>
+<!-- Social -->
+<div>
+<h4 class="font-bold text-lg mb-4 text-primary">Follow Us</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="font-bold text-sm">IG</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="font-bold text-sm">TK</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="font-bold text-sm">FB</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+<p>© 2024 Mie Ayam &amp; Bakso. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Action Button (WhatsApp) -->
+<a aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center group" href="https://wa.me/?text=Hello,%20I%20would%20like%20to%20order..." target="_blank">
+<span class="material-symbols-outlined text-3xl">chat</span>
+<span class="absolute right-full mr-3 bg-white dark:bg-stone-800 text-stone-800 dark:text-white px-3 py-1 rounded-lg text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+           Order Now
+       </span>
+</a>
+</body></html>
