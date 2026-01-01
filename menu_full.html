@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Full Menu - Mie Ayam & Bakso</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec6d13",
+                        "primary-dark": "#d55f0b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221810",
+                        "text-main": "#1b130d",
+                        "text-muted": "#6b5c52",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .menu-category {
+            scroll-margin-top: 6rem;
+        }
+        @media (min-width: 768px) {
+            .menu-category {
+                scroll-margin-top: 8rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 w-full border-b border-stone-200 dark:border-stone-800 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-2 text-text-main dark:text-white">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="size-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
+                            <span class="material-symbols-outlined text-2xl">ramen_dining</span>
+                        </div>
+                        <h2 class="text-xl font-bold tracking-tight">Mie Ayam & Bakso</h2>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex flex-1 justify-end items-center gap-8">
+                    <div class="flex items-center gap-6">
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html#hero">Home</a>
+                        <a class="text-sm font-medium text-primary font-bold" href="menu_full.html">Full Menu</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html#reviews">Reviews</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html#location">Location</a>
+                    </div>
+                    <a class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold shadow-lg shadow-primary/20" 
+                       href="https://wa.me/?text=Hello,%20I%20would%20like%20to%20order..." target="_blank">
+                        <span class="truncate">Order Now</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-text-main dark:text-white p-2" id="mobileMenuButton">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden border-t border-stone-200 dark:border-stone-800 bg-background-light dark:bg-background-dark" id="mobileMenu">
+            <div class="px-4 py-4 space-y-4">
+                <a class="block text-sm font-medium hover:text-primary transition-colors py-2" href="index.html#hero">Home</a>
+                <a class="block text-sm font-medium text-primary font-bold py-2" href="menu_full.html">Full Menu</a>
+                <a class="block text-sm font-medium hover:text-primary transition-colors py-2" href="index.html#reviews">Reviews</a>
+                <a class="block text-sm font-medium hover:text-primary transition-colors py-2" href="index.html#location">Location</a>
+                <a class="block mt-4 flex items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-white text-sm font-bold" 
+                   href="https://wa.me/?text=Hello,%20I%20would%20like%20to%20order..." target="_blank">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Menu -->
+    <section class="relative w-full bg-gradient-to-br from-primary/5 to-primary/10 dark:from-primary/10 dark:to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <div class="flex flex-col items-center text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 w-fit mb-6">
+                    <span class="material-symbols-outlined text-primary text-sm icon-filled">menu_book</span>
+                    <span class="text-xs font-bold text-primary tracking-wide uppercase">Complete Menu</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-text-main dark:text-white mb-4">
+                    Our <span class="text-primary">Full Menu</span>
+                </h1>
+                <p class="text-lg text-text-muted dark:text-gray-400 max-w-2xl leading-relaxed mb-8">
+                    Discover all our delicious offerings. From traditional favorites to special creations, each dish is made with fresh ingredients and authentic recipes.
+                </p>
+                
+                <!-- Quick Category Navigation -->
+                <div class="flex flex-wrap justify-center gap-3 mb-8">
+                    <a href="#noodles" class="px-4 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-md">Noodles</a>
+                    <a href="#meatballs" class="px-4 py-2 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 hover:border-primary text-text-main dark:text-white rounded-full text-sm font-bold transition-all hover:bg-stone-50 dark:hover:bg-stone-700">Meatballs</a>
+                    <a href="#drinks" class="px-4 py-2 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 hover:border-primary text-text-main dark:text-white rounded-full text-sm font-bold transition-all hover:bg-stone-50 dark:hover:bg-stone-700">Drinks</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Menu Section -->
+    <section class="py-12 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Noodles Category -->
+            <div class="menu-category mb-20" id="noodles">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl">ramen_dining</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-text-main dark:text-white">Noodles</h2>
+                        <p class="text-text-muted dark:text-gray-400">Fresh handmade noodles with various toppings</p>
+                    </div>
+                </div>
+                
+                <div id="menu-mie" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+            
+            <!-- Meatballs Category -->
+            <div class="menu-category mb-20" id="meatballs">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl">kebab_dining</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-text-main dark:text-white">Meatballs & Soups</h2>
+                        <p class="text-text-muted dark:text-gray-400">Juicy meatballs in rich, flavorful broth</p>
+                    </div>
+                </div>
+                
+                <div id="menu-bakso" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+            
+            <!-- Drinks Category -->
+            <div class="menu-category mb-20" id="drinks">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-2xl">local_cafe</span>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-text-main dark:text-white">Drinks & Refreshments</h2>
+                        <p class="text-text-muted dark:text-gray-400">Perfect companions for your meal</p>
+                    </div>
+                </div>
+
+                <div id="menu-minuman" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CART PANEL -->
+    <div id="cart"
+        class="fixed bottom-24 right-6 w-80 bg-white dark:bg-stone-900 rounded-xl shadow-xl p-4 hidden z-50">
+
+        <h3 class="font-bold text-lg mb-3">Pesanan Saya</h3>
+
+        <div id="cart-items" class="space-y-2 text-sm"></div>
+
+        <div class="border-t pt-3 mt-3 flex justify-between font-bold">
+            <span>Total</span>
+            <span id="cart-total">Rp 0</span>
+        </div>
+
+        <button onclick="orderWA()"
+            class="mt-4 w-full bg-primary hover:bg-primary-dark text-white py-2 rounded-lg font-bold">
+            Order via WhatsApp
+        </button>
+    </div>
+
+    <button onclick="toggleCart()"
+        class="fixed bottom-6 right-6 bg-primary hover:bg-primary-dark text-white px-5 py-3 rounded-full shadow-lg font-bold z-50">
+        🛒 Cart
+        
+        <span id="cart-badge"
+            class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold
+                rounded-full w-6 h-6 flex items-center justify-center hidden">
+            0
+        </span>
+    </button>
+</body>
+
+<script src="menu_full.js"></script>
+</html>

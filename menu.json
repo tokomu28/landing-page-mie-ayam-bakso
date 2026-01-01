@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nama": "Mie Ayam Special",
+    "harga": 25000,
+    "best": true,
+    "kategori": "mie",
+    "deskripsi": "Handmade noodles topped with savory soy chicken, mushrooms, and crispy wonton skin.",
+    "gambar": "https://lh3.googleusercontent.com/aida-public/AB6AXuDsSRI3hMnOgxnF4m_mO5g_d9ntEX-V_RhK_Pul02nzHBTMfPETwuvs_fl58g4M7PSRauwrEZsUIhqBdAMMFAbLas1omRgrfgnLghtryVV5-oXkM1dwNcOTz3ZBBE5i3VHyFC5yQtEbH4jkyQTRvuJYNgnlcT92dBEDsCEdYeFR4TTgLKsiAIHc7FdXZyvGaDMunQk88ZhsV5OWCEpI_utRW8nLvjJKogXUozB-BVxGArtSHi7w4-gybmD2khKAcNesoAZQL3ROcj4Z"
+  },
+  {
+    "id": 2,
+    "nama": "Bakso Urat Complete",
+    "harga": 30000,
+    "best": true,
+    "kategori": "bakso",
+    "deskripsi": "Large tendon meatballs served with rich beef broth, tofu, yellow noodles, and vermicelli.",
+    "gambar": "https://lh3.googleusercontent.com/aida-public/AB6AXuCNUwii0-rNbpstP22irIF6JFvIBZuKZqpqpISMVQIrJChi6zmc064ZMAomUNEdrJwL-niAuEh64_dm0t4_hxtaNmwJ0xPux3qYfh_t3dyPYx4zePNSGqePc6gFD8foADeKBLJwf-t9yB-pGg7LMJlps8gyVPBfXl0AgheQrrb1pDHNXvO3HuJZKEh2sNQ37-vn_WCOHv8DkrtEaKZX8bueKMP8f00i3Qx0kXQIMJET9X6o3Uvwgiray_XpRGHgwXFEF9ma7vbe15d_"
+  },
+  {
+    "id": 3,
+    "nama": "Es Jeruk Segar",
+    "harga": 10000,
+    "best": true,
+    "kategori": "minuman",
+    "deskripsi": "Freshly squeezed local oranges with ice. The perfect refreshing companion for your meal.",
+    "gambar": "https://lh3.googleusercontent.com/aida-public/AB6AXuC_KVwzaKP8W4GrOC48QwEfgYBfwFnrgJMcfy4dOm-y4sRTjvY1EaBGZA7izBWg0AN0cUMvOYlSqo7b9CtnY0c46V2D7Hjyi1DIleTtY6opQsVq-oDM2n9Pr7VoDIvRa5AUt1B9mvhU2dJrcdndvABUjTKYtxmwtrmj1oSfMuw2MRE2HXLZcLrqmuuDjyVHv0IHEuzSUt4gj7YYoJbEsNgm1943CXQse7Q8V42k3q-NC0gM0n6NLrCqBn-tYYHt4Ko39HAEMLlJw3M9"
+  },
+  {
+    "id": 4,
+    "nama": "Mie Ayam Pangsit",
+    "harga": 15000,
+    "best": false,
+    "kategori": "mie",
+    "deskripsi": "Freshly squeezed local oranges with ice. The perfect refreshing companion for your meal.",
+    "gambar": ""
+  }
+]
