@@ -1,15 +1,15 @@
 fetch("menu.json")
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     const mieContainer = document.getElementById("menu-mie");
     const baksoContainer = document.getElementById("menu-bakso");
     const minumanContainer = document.getElementById("menu-minuman");
 
-    data.forEach(item => {
+    data.forEach((item) => {
       let targetContainer;
 
       if (item.kategori === "mie") targetContainer = mieContainer;
-      if (item.kategori === "bakso") targetContainer = baksoContainer;
+      if (item.kategori === "ayam") targetContainer = baksoContainer;
       if (item.kategori === "minuman") targetContainer = minumanContainer;
 
       if (targetContainer) {
@@ -18,11 +18,11 @@ fetch("menu.json")
     });
   });
 
-
 function createMenuCard(item) {
-  const imageUrl = item.gambar && item.gambar.trim() !== ""
-  ? item.gambar
-  : "assets/images/no-image.png";
+  const imageUrl =
+    item.gambar && item.gambar.trim() !== ""
+      ? item.gambar
+      : "assets/images/no-image.png";
   const card = document.createElement("div");
   card.className =
     "group bg-white dark:bg-stone-900 rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-stone-100 dark:border-stone-800";
@@ -32,14 +32,20 @@ function createMenuCard(item) {
       <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
            style="background-image: url('${imageUrl}')"></div>
 
-      ${item.best ? `
+      ${
+        item.best
+          ? `
         <div class="absolute top-3 right-3 bg-white dark:bg-stone-800 px-2 py-1 rounded-md text-xs font-bold shadow-md">
           Best Seller
-        </div>` : ""}
+        </div>`
+          : ""
+      }
     </div>
 
     <div class="flex justify-between items-start mb-2">
-      <h4 class="text-xl font-bold text-text-main dark:text-white">${item.nama}</h4>
+      <h4 class="text-xl font-bold text-text-main dark:text-white">${
+        item.nama
+      }</h4>
       <span class="text-primary font-bold">
         Rp ${item.harga.toLocaleString("id-ID")}
       </span>
@@ -83,7 +89,7 @@ function updateCartBadge() {
 function addToCart(nama, harga) {
   console.log("Tambah ke cart:", nama);
 
-  const item = cart.find(i => i.nama === nama);
+  const item = cart.find((i) => i.nama === nama);
   if (item) {
     item.qty++;
   } else {
@@ -101,22 +107,72 @@ function renderCart() {
   container.innerHTML = "";
   let total = 0;
 
-  cart.forEach(item => {
+  cart.forEach((item) => {
     const subtotal = item.harga * item.qty;
     total += subtotal;
 
     container.innerHTML += `
-      <div class="flex justify-between">
+      <div class="flex justify-between items-center gap-2">
         <div>
           <p class="font-semibold">${item.nama}</p>
-          <p class="text-gray-500">Qty: ${item.qty}</p>
+          <p class="text-gray-500 text-xs">
+            Rp ${item.harga.toLocaleString("id-ID")}
+          </p>
         </div>
-        <span>Rp ${subtotal.toLocaleString("id-ID")}</span>
+
+        <div class="flex items-center gap-2">
+          <button onclick="decreaseQty('${item.nama}')"
+            class="w-7 h-7 flex items-center justify-center rounded bg-gray-200 hover:bg-gray-300 text-lg">
+            −
+          </button>
+
+          <span class="min-w-[20px] text-center font-bold">
+            ${item.qty}
+          </span>
+          <button onclick="increaseQty('${item.nama}')"
+            class="w-7 h-7 flex items-center justify-center rounded bg-gray-200 hover:bg-gray-300 text-lg">
+            +
+          </button>
+
+          <button onclick="removeFromCart('${item.nama}')"
+            class="ml-2 text-red-500 hover:text-red-700 font-bold">
+            ✕
+          </button>
+        </div>
       </div>
     `;
   });
 
   totalEl.textContent = `Rp ${total.toLocaleString("id-ID")}`;
+}
+
+function increaseQty(nama) {
+  const item = cart.find(i => i.nama === nama);
+  if (item) {
+    item.qty++;
+    renderCart();
+    updateCartBadge();
+  }
+}
+
+function decreaseQty(nama) {
+  const item = cart.find(i => i.nama === nama);
+  if (!item) return;
+
+  item.qty--;
+
+  if (item.qty <= 0) {
+    removeFromCart(nama);
+  } else {
+    renderCart();
+    updateCartBadge();
+  }
+}
+
+function removeFromCart(nama) {
+  cart = cart.filter(item => item.nama !== nama);
+  renderCart();
+  updateCartBadge();
 }
 
 function orderWA() {
@@ -131,13 +187,15 @@ function orderWA() {
   cart.forEach((item, i) => {
     const subtotal = item.harga * item.qty;
     total += subtotal;
-    message += `${i + 1}. ${item.nama} (x${item.qty}) - Rp ${subtotal.toLocaleString("id-ID")}\n`;
+    message += `${i + 1}. ${item.nama} (x${
+      item.qty
+    }) - Rp ${subtotal.toLocaleString("id-ID")}\n`;
   });
 
   message += `\nTotal: Rp ${total.toLocaleString("id-ID")}\n\n`;
   message += "Alamat pengiriman:\nCatatan:\n\nTerima kasih 🙏";
 
-  const phone = "6289614414526";
+  const phone = "6281936250909";
   window.open(
     `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
     "_blank"

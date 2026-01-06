@@ -1,38 +1,110 @@
 [
   {
     "id": 1,
-    "nama": "Mie Ayam Special",
-    "harga": 25000,
+    "nama": "Mie Ayam Biasa",
+    "harga": 10000,
     "best": true,
     "kategori": "mie",
-    "deskripsi": "Handmade noodles topped with savory soy chicken, mushrooms, and crispy wonton skin.",
-    "gambar": "https://lh3.googleusercontent.com/aida-public/AB6AXuDsSRI3hMnOgxnF4m_mO5g_d9ntEX-V_RhK_Pul02nzHBTMfPETwuvs_fl58g4M7PSRauwrEZsUIhqBdAMMFAbLas1omRgrfgnLghtryVV5-oXkM1dwNcOTz3ZBBE5i3VHyFC5yQtEbH4jkyQTRvuJYNgnlcT92dBEDsCEdYeFR4TTgLKsiAIHc7FdXZyvGaDMunQk88ZhsV5OWCEpI_utRW8nLvjJKogXUozB-BVxGArtSHi7w4-gybmD2khKAcNesoAZQL3ROcj4Z"
+    "deskripsi": "Mie kenyal dengan potongan ayam gurih khas.",
+    "gambar": "assets/images/mie ayam biasa.png"
   },
   {
     "id": 2,
-    "nama": "Bakso Urat Complete",
-    "harga": 30000,
+    "nama": "Mie Ayam Komplit",
+    "harga": 15000,
     "best": true,
-    "kategori": "bakso",
-    "deskripsi": "Large tendon meatballs served with rich beef broth, tofu, yellow noodles, and vermicelli.",
-    "gambar": "https://lh3.googleusercontent.com/aida-public/AB6AXuCNUwii0-rNbpstP22irIF6JFvIBZuKZqpqpISMVQIrJChi6zmc064ZMAomUNEdrJwL-niAuEh64_dm0t4_hxtaNmwJ0xPux3qYfh_t3dyPYx4zePNSGqePc6gFD8foADeKBLJwf-t9yB-pGg7LMJlps8gyVPBfXl0AgheQrrb1pDHNXvO3HuJZKEh2sNQ37-vn_WCOHv8DkrtEaKZX8bueKMP8f00i3Qx0kXQIMJET9X6o3Uvwgiray_XpRGHgwXFEF9ma7vbe15d_"
+    "kategori": "mie",
+    "deskripsi": "Mie kenyal dengan potongan ayam gurih khas, disajikan bersama bakso sapi yang lembut dan kuah kaldu hangat yang kaya rasa.",
+    "gambar": "assets/images/mie ayam komplit.jpeg"
   },
   {
     "id": 3,
-    "nama": "Es Jeruk Segar",
-    "harga": 10000,
-    "best": true,
-    "kategori": "minuman",
-    "deskripsi": "Freshly squeezed local oranges with ice. The perfect refreshing companion for your meal.",
-    "gambar": "https://lh3.googleusercontent.com/aida-public/AB6AXuC_KVwzaKP8W4GrOC48QwEfgYBfwFnrgJMcfy4dOm-y4sRTjvY1EaBGZA7izBWg0AN0cUMvOYlSqo7b9CtnY0c46V2D7Hjyi1DIleTtY6opQsVq-oDM2n9Pr7VoDIvRa5AUt1B9mvhU2dJrcdndvABUjTKYtxmwtrmj1oSfMuw2MRE2HXLZcLrqmuuDjyVHv0IHEuzSUt4gj7YYoJbEsNgm1943CXQse7Q8V42k3q-NC0gM0n6NLrCqBn-tYYHt4Ko39HAEMLlJw3M9"
+    "nama": "Mie Ayam Bakso",
+    "harga": 13000,
+    "best": false,
+    "kategori": "mie",
+    "deskripsi": "Mie kenyal dengan potongan ayam gurih khas, disajikan bersama bakso sapi yang lembut dan kuah kaldu hangat yang kaya rasa.",
+    "gambar": "assets/images/mie ayam bakso.png"
   },
   {
     "id": 4,
     "nama": "Mie Ayam Pangsit",
-    "harga": 15000,
+    "harga": 13000,
     "best": false,
     "kategori": "mie",
-    "deskripsi": "Freshly squeezed local oranges with ice. The perfect refreshing companion for your meal.",
-    "gambar": ""
+    "deskripsi": "Mie ayam lezat dengan topping ayam berbumbu khas, dilengkapi pangsit renyah yang gurih di luar dan lembut di dalam.",
+    "gambar": "assets/images/mie ayam pangsit.png"
+  },
+  {
+    "id": 5,
+    "nama": "Mie Ayam Ceker",
+    "harga": 13000,
+    "best": false,
+    "kategori": "mie",
+    "deskripsi": "Mie ayam dengan tambahan ceker empuk yang dimasak hingga meresap bumbu, menghadirkan sensasi gurih dan nikmat di setiap suapan.",
+    "gambar": "assets/images/mie ayam ceker.png"
+  },
+  {
+    "id": 6,
+    "nama": "Ayam Geprek",
+    "harga": 15000,
+    "best": true,
+    "kategori": "ayam",
+    "deskripsi": "Ayam goreng crispy yang digeprek dan disajikan dengan sambal pedas khas, memberikan sensasi rasa gurih dan pedas yang menggugah selera.",
+    "gambar": "assets/images/ayam geprek.png"
+  },
+  {
+    "id": 7,
+    "nama": "Ayam Geprek Sambal Matah",
+    "harga": 15000,
+    "best": true,
+    "kategori": "ayam",
+    "deskripsi": "Ayam goreng crispy yang digeprek dan disajikan dengan sambal matah segar, memberikan perpaduan rasa pedas dan gurih yang menggugah selera.",
+    "gambar": "assets/images/ayam geprek sambal matah.png"
+  },
+  {
+    "id": 8,
+    "nama": "Ayam goreng",
+    "harga": 15000,
+    "best": true,
+    "kategori": "ayam",
+    "deskripsi": "Ayam goreng renyah dengan bumbu khas yang meresap hingga ke dalam daging, cocok dinikmati dengan nasi hangat dan sambal favorit.",
+    "gambar": "assets/images/ayam goreng.png"
+  },
+  {
+    "id": 9,
+    "nama": "Es Jeruk",
+    "harga": 7000,
+    "best": false,
+    "kategori": "minuman",
+    "deskripsi": "Minuman segar dari perasan jeruk pilihan dengan rasa manis dan asam yang pas, menyegarkan di setiap tegukan.",
+    "gambar": "assets/images/es jeruk.jpeg"
+  },
+  {
+    "id": 10,
+    "nama": "Kopi",
+    "harga": 5000,
+    "best": true,
+    "kategori": "minuman",
+    "deskripsi": "Kopi hangat dengan aroma khas dan rasa yang mantap, cocok dinikmati kapan saja untuk menemani waktu santai.",
+    "gambar": "assets/images/kopi.png"
+  },
+  {
+    "id": 11,
+    "nama": "Pop Ice",
+    "harga": 5000,
+    "best": false,
+    "kategori": "minuman",
+    "deskripsi": "Minuman manis dan dingin dengan berbagai varian rasa favorit, menyegarkan dan disukai semua kalangan.",
+    "gambar": "assets/images/pop ice.png"
+  },
+  {
+    "id": 12,
+    "nama": "Teh",
+    "harga": 5000,
+    "best": true,
+    "kategori": "minuman",
+    "deskripsi": "Teh hangat dengan aroma harum dan rasa yang menenangkan, sempurna untuk menemani waktu bersantai Anda.",
+    "gambar": "assets/images/teh.png"
   }
 ]

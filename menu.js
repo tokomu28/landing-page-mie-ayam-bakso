@@ -99,17 +99,67 @@ function renderCart() {
     total += subtotal;
 
     container.innerHTML += `
-      <div class="flex justify-between">
+      <div class="flex justify-between items-center gap-2">
         <div>
           <p class="font-semibold">${item.nama}</p>
-          <p class="text-gray-500">Qty: ${item.qty}</p>
+          <p class="text-gray-500 text-xs">
+            Rp ${item.harga.toLocaleString("id-ID")}
+          </p>
         </div>
-        <span>Rp ${subtotal.toLocaleString("id-ID")}</span>
+
+        <div class="flex items-center gap-2">
+          <button onclick="decreaseQty('${item.nama}')"
+            class="w-7 h-7 flex items-center justify-center rounded bg-gray-200 hover:bg-gray-300 text-lg">
+            −
+          </button>
+
+          <span class="min-w-[20px] text-center font-bold">
+            ${item.qty}
+          </span>
+          <button onclick="increaseQty('${item.nama}')"
+            class="w-7 h-7 flex items-center justify-center rounded bg-gray-200 hover:bg-gray-300 text-lg">
+            +
+          </button>
+
+          <button onclick="removeFromCart('${item.nama}')"
+            class="ml-2 text-red-500 hover:text-red-700 font-bold">
+            ✕
+          </button>
+        </div>
       </div>
     `;
   });
 
   totalEl.textContent = `Rp ${total.toLocaleString("id-ID")}`;
+}
+
+function increaseQty(nama) {
+  const item = cart.find(i => i.nama === nama);
+  if (item) {
+    item.qty++;
+    renderCart();
+    updateCartBadge();
+  }
+}
+
+function decreaseQty(nama) {
+  const item = cart.find(i => i.nama === nama);
+  if (!item) return;
+
+  item.qty--;
+
+  if (item.qty <= 0) {
+    removeFromCart(nama);
+  } else {
+    renderCart();
+    updateCartBadge();
+  }
+}
+
+function removeFromCart(nama) {
+  cart = cart.filter(item => item.nama !== nama);
+  renderCart();
+  updateCartBadge();
 }
 
 function orderWA() {
@@ -130,7 +180,7 @@ function orderWA() {
   message += `\nTotal: Rp ${total.toLocaleString("id-ID")}\n\n`;
   message += "Alamat pengiriman:\nCatatan:\n\nTerima kasih 🙏";
 
-  const phone = "6289614414526";
+  const phone = "6281936250909";
   window.open(
     `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
     "_blank"
